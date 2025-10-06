@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img1"
+    tools:context=".MainActivity">
+
+    <!-- Top Decorative Circle -->
+    <View
+        android:id="@+id/logo_bg"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@drawable/circle_bg"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="48dp"/>
+
+    <!-- App Logo -->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/im"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintTop_toTopOf="@id/logo_bg"
+        app:layout_constraintBottom_toBottomOf="@id/logo_bg"
+        app:layout_constraintStart_toStartOf="@id/logo_bg"
+        app:layout_constraintEnd_toEndOf="@id/logo_bg"/>
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/welcome_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/logo_bg"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Tagline -->
+    <TextView
+        android:id="@+id/welcome_tagline"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_tagline"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
+        app:layout_constraintTop_toBottomOf="@id/welcome_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"/>
+
+    <!-- Info / Motivational Text -->
+    <TextView
+        android:id="@+id/info_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Stay connected, stay mindful!"
+        android:textSize="14sp"
+        android:textColor="@color/grayDark"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/welcome_tagline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Buttons Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/button_card"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintTop_toBottomOf="@id/info_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- Signup Button -->
+            <Button
+                android:id="@+id/button_signup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/primary"
+                android:text="@string/signup_button"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <!-- Login Button -->
+            <Button
+                android:id="@+id/button_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/accent"
+                android:text="@string/login_button"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <!-- Google Login Button -->
+            <Button
+                android:id="@+id/button_google"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/white"
+                android:drawableStart="@drawable/ic_google"
+                android:drawablePadding="8dp"
+                android:text="Continue with Google"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Version Text -->
+    <TextView
+        android:id="@+id/version_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="v1.0.0"
+        android:textSize="10sp"
+        android:textColor="@color/gray"
+        app:layout_constraintBottom_toTopOf="@id/footer_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="4dp"/>
+
+    <!-- Footer -->
+    <TextView
+        android:id="@+id/footer_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/footer_text"
+        android:textSize="12sp"
+        android:textColor="@color/gray_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="24dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

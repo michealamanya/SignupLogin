@@ -1,0 +1,38 @@
+<resources>
+    <!-- App Name -->
+    <string name="app_name">SignupLogin</string>
+
+    <!-- Common -->
+    <string name="welcome">Welcome</string>
+    <string name="welcome_tagline">Your companion for mental well-being and support.</string>
+    <string name="footer_text">© 2025 MindMate</string>
+    <string name="continue_button">Continue</string>
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- Login -->
+    <string name="login_title">Login</string>
+    <string name="login_username">Username</string>
+    <string name="login_password">Password</string>
+    <string name="login_button">Log In</string>
+    <string name="no_account">Don’t have an account? Sign up</string>
+
+    <!-- Signup -->
+    <string name="signup_title">Create Account</string>
+    <string name="signup_name">Full Name</string>
+    <string name="signup_email">Email</string>
+    <string name="signup_username">Username</string>
+    <string name="signup_password">Password</string>
+    <string name="signup_button">Sign Up</string>
+    <string name="have_account">Already have an account? Log in</string>
+
+    <!-- Toast / Messages -->
+    <string name="signup_success">You have signed up successfully</string>
+    <string name="login_failed">Invalid username or password</string>
+    <string name="login_success">Login successful</string>
+    <string name="google_vision_api_key">AIzaSyAZFyIeNPE8Ao6P8Yv-hOh9mgEh_g7FjaE</string>
+
+    <string name="default_web_client_id">856968388216-qgjdgtmb3h382koa924p0ohalm76u2pk.apps.googleusercontent.com</string>
+
+</resources>

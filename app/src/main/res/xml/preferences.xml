@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="Account">
+        <Preference
+            android:key="profile"
+            android:title="Profile"
+            android:summary="View and edit your profile"
+            app:icon="@drawable/ic_profile" />
+
+        <Preference
+            android:key="notifications"
+            android:title="Notifications"
+            android:summary="Manage notification settings"
+            app:icon="@drawable/ic_notifications" />
+
+        <Preference
+            android:key="sign_out"
+            android:title="Sign Out"
+            app:icon="@drawable/ic_sign_out" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="App Settings">
+        <SwitchPreferenceCompat
+            android:key="dark_mode"
+            android:title="Dark Mode"
+            android:summary="Enable dark theme"
+            app:icon="@drawable/ic_dark_mode" />
+
+        <ListPreference
+            android:key="reminder_frequency"
+            android:title="Reminder Frequency"
+            android:summary="How often to receive reminders"
+            android:entries="@array/reminder_frequency_entries"
+            android:entryValues="@array/reminder_frequency_values"
+            android:defaultValue="daily"
+            app:icon="@drawable/ic_reminder" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="About">
+        <Preference
+            android:key="about_app"
+            android:title="About MindMate"
+            android:summary="Version 1.0.0"
+            app:icon="@drawable/ic_info" />
+
+        <Preference
+            android:key="privacy_policy"
+            android:title="Privacy Policy"
+            app:icon="@drawable/ic_privacy" />
+
+        <Preference
+            android:key="terms_of_service"
+            android:title="Terms of Service"
+            app:icon="@drawable/ic_terms" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/settings_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switch_checkin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:checked="true"
+        android:text="Daily Check-in Reminders"
+        android:textSize="16sp" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switch_meditation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:checked="true"
+        android:text="Meditation Reminders"
+        android:textSize="16sp" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switch_journal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:checked="true"
+        android:text="Journal Entry Reminders"
+        android:textSize="16sp" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switch_tips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:checked="true"
+        android:text="Wellness Tips &amp; Updates"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="You can change these settings at any time."
+        android:textColor="@color/gray"
+        android:textSize="14sp" />
+
+</LinearLayout>

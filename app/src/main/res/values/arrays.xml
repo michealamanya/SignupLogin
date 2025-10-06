@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="reminder_frequency_entries">
+        <item>Daily</item>
+        <item>Twice a day</item>
+        <item>Weekly</item>
+        <item>Never</item>
+    </string-array>
+
+    <string-array name="reminder_frequency_values">
+        <item>daily</item>
+        <item>twice_daily</item>
+        <item>weekly</item>
+        <item>never</item>
+    </string-array>
+</resources>

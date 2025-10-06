@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand Colors -->
+    <color name="primary">#1976D2</color>          <!-- Used in layouts -->
+    <color name="primary_dark">#1565C0</color>
+    <color name="accent">#FF9800</color>
+
+    <!-- Legacy aliases for compatibility -->
+    <color name="colorPrimary">#1976D2</color>
+    <color name="colorPrimaryDark">#1565C0</color>
+    <color name="colorAccent">#FF9800</color>
+
+    <!-- Neutral Colors -->
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="gray_light">#F5F5F5</color>
+    <color name="gray">#9E9E9E</color>
+    <color name="gray_dark">#424242</color>
+
+    <!-- Status Colors -->
+    <color name="success_green">#4CAF50</color>
+    <color name="error_red">#F44336</color>
+    <color name="warning_yellow">#FFC107</color>
+    <color name="info_blue">#2196F3</color>
+
+    <!-- Background Colors -->
+    <color name="background_light">#FFFFFF</color>
+    <color name="background_dark">#121212</color>
+
+    <!-- Button States -->
+    <color name="button_enabled">#1976D2</color>
+    <color name="button_disabled">#B0BEC5</color>
+    <color name="button_pressed">#1565C0</color>
+    <color name="grayDark">#424242</color>
+    <color name="googleBlue">#4285F4</color>
+    <color name="purple_500">#6200EE</color>
+
+
+</resources>

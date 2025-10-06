@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dashboard_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light"
+    android:fitsSystemWindows="true"
+    tools:context=".DashboardActivity">
+
+    <!-- Profile Section -->
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_profile"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginStart="24dp"
+        android:src="@drawable/default_avatar"
+        app:shapeAppearanceOverlay="@style/CircleImageView"
+        app:strokeColor="@color/primary"
+        app:strokeWidth="2dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- Settings Icon -->
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_settings"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="48dp"
+        android:src="@drawable/ic_settings"
+        android:padding="6dp"
+        app:shapeAppearanceOverlay="@style/CircleImageView"
+        app:strokeColor="@color/gray"
+        app:strokeWidth="1dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Greeting -->
+    <TextView
+        android:id="@+id/tv_greeting"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Hi there!"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintStart_toEndOf="@id/iv_profile"
+        app:layout_constraintEnd_toStartOf="@id/iv_settings"
+        app:layout_constraintTop_toTopOf="@id/iv_profile"/>
+
+    <TextView
+        android:id="@+id/tv_greeting_subtext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Let's check in with your mind today."
+        android:textSize="14sp"
+        android:textColor="@color/gray_dark"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintStart_toEndOf="@id/iv_profile"
+        app:layout_constraintEnd_toStartOf="@id/iv_settings"
+        app:layout_constraintTop_toBottomOf="@id/tv_greeting"/>
+
+    <!-- Scrollable Content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/tv_greeting_subtext"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
+        android:layout_marginTop="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Motivational Quote -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/quote_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                android:layout_margin="16dp"
+                android:backgroundTint="@color/info_blue">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/tv_quote_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="💭"
+                        android:textSize="24sp"
+                        android:layout_marginEnd="12dp"/>
+
+                    <TextView
+                        android:id="@+id/tv_daily_quote"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Take a deep breath—you've got this."
+                        android:textSize="16sp"
+                        android:textColor="@color/white"
+                        android:textStyle="italic"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Quick Stats Row -->
+            <LinearLayout
+                android:id="@+id/quick_stats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:weightSum="3"
+                android:layout_marginTop="16dp">
+
+                <!-- Mood Score -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/mood_card"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="8dp"
+                    android:layout_margin="8dp"
+                    android:backgroundTint="@color/primary">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="12dp">
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center">
+
+                            <!-- Mood Image View -->
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:id="@+id/iv_mood_image"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:scaleType="centerCrop"
+                                android:visibility="gone"
+                                app:shapeAppearanceOverlay="@style/CircleImageView"
+                                app:strokeColor="@color/white"
+                                app:strokeWidth="2dp"/>
+
+                            <!-- Mood Score Emoji -->
+                            <TextView
+                                android:id="@+id/tv_mood_score"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="😊"
+                                android:textSize="36sp"/>
+                        </FrameLayout>
+
+                        <TextView
+                            android:id="@+id/tv_mood_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mood Score"
+                            android:textSize="14sp"
+                            android:textColor="@color/white"/>
+
+                        <com.google.android.material.progressindicator.LinearProgressIndicator
+                            android:id="@+id/mood_progress"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:progress="75"
+                            app:trackThickness="4dp"
+                            app:trackColor="@color/white"
+                            app:indicatorColor="@color/accent"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Daily Tips -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/tips_card"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="8dp"
+                    android:layout_margin="8dp"
+                    android:backgroundTint="@color/accent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:id="@+id/tv_tips_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="💡"
+                            android:textSize="36sp"/>
+
+                        <TextView
+                            android:id="@+id/tv_tips_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3 New"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"/>
+
+                        <TextView
+                            android:id="@+id/tv_tips_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Daily Tips"
+                            android:textSize="14sp"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Today's Session -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/session_card"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="8dp"
+                    android:layout_margin="8dp"
+                    android:backgroundTint="@color/success_green">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:id="@+id/tv_sessions_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🧘"
+                            android:textSize="36sp"/>
+
+                        <TextView
+                            android:id="@+id/tv_sessions_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="45:00"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"/>
+
+                        <TextView
+                            android:id="@+id/tv_sessions_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Today's Session"
+                            android:textSize="14sp"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- Chatbot Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/chatbot_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="12dp"
+                android:backgroundTint="@color/primary_dark">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_chatbot_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Talk to MindMate"
+                            android:textSize="20sp"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/tv_chatbot_desc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ask for guidance, tips, or share your thoughts confidentially."
+                            android:textSize="14sp"
+                            android:textColor="@color/gray_light"
+                            android:layout_marginTop="8dp"/>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/iv_chatbot"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_chat_bot"
+                        android:layout_gravity="center_vertical"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Quick Action Buttons -->
+            <LinearLayout
+                android:id="@+id/quick_actions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="4"
+                android:layout_marginTop="16dp"
+                android:paddingHorizontal="8dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_checkin"
+                    android:layout_width="0dp"
+                    android:layout_height="64dp"
+                    android:layout_weight="1"
+                    android:text="Check-In"
+                    android:textSize="13sp"
+                    app:icon="@drawable/ic_checkin"
+                    app:iconGravity="top"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/purple_500"
+                    app:cornerRadius="16dp"
+                    android:layout_margin="4dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_journal"
+                    android:layout_width="0dp"
+                    android:layout_height="64dp"
+                    android:layout_weight="1"
+                    android:text="Journal"
+                    android:textSize="13sp"
+                    app:icon="@drawable/ic_journal"
+                    app:iconGravity="top"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/primary"
+                    app:cornerRadius="16dp"
+                    android:layout_margin="4dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_meditation"
+                    android:layout_width="0dp"
+                    android:layout_height="64dp"
+                    android:layout_weight="1"
+                    android:text="Meditation"
+                    android:textSize="13sp"
+                    app:icon="@drawable/ic_meditation"
+                    app:iconGravity="top"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/info_blue"
+                    app:cornerRadius="16dp"
+                    android:layout_margin="4dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_resources"
+                    android:layout_width="0dp"
+                    android:layout_height="64dp"
+                    android:layout_weight="1"
+                    android:text="Resources"
+                    android:textSize="13sp"
+                    app:icon="@drawable/ic_resources"
+                    app:iconGravity="top"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/accent"
+                    app:cornerRadius="16dp"
+                    android:layout_margin="4dp"/>
+            </LinearLayout>
+
+            <!-- Mood Trends -->
+            <TextView
+                android:id="@+id/tv_trends_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Mood Trends"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/gray_dark"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/mood_trends_card"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+
+                <!-- Use a horizontal LinearLayout for day circles -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:padding="16dp">
+
+                    <!-- Monday -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mon"
+                            android:textSize="12sp"/>
+                        <View
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:background="@drawable/circle_shape"
+                            android:backgroundTint="@color/success_green"
+                            android:layout_margin="4dp"/>
+                    </LinearLayout>
+
+                    <!-- Tuesday -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tue"
+                            android:textSize="12sp"/>
+                        <View
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:background="@drawable/circle_shape"
+                            android:backgroundTint="@color/info_blue"
+                            android:layout_margin="4dp"/>
+                    </LinearLayout>
+
+                    <!-- Wednesday -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Wed"
+                            android:textSize="12sp"/>
+                        <View
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:background="@drawable/circle_shape"
+                            android:backgroundTint="@color/info_blue"
+                            android:layout_margin="4dp"/>
+                    </LinearLayout>
+
+                    <!-- Thursday -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Thu"
+                            android:textSize="12sp"/>
+                        <View
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:background="@drawable/circle_shape"
+                            android:backgroundTint="@color/warning_yellow"
+                            android:layout_margin="4dp"/>
+                    </LinearLayout>
+
+                    <!-- Friday -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Fri"
+                            android:textSize="12sp"/>
+                        <View
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:background="@drawable/circle_shape"
+                            android:backgroundTint="@color/success_green"
+                            android:layout_margin="4dp"/>
+                    </LinearLayout>
+
+                    <!-- Saturday -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sat"
+                            android:textSize="12sp"/>
+                        <View
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:background="@drawable/circle_shape"
+                            android:backgroundTint="@color/success_green"
+                            android:layout_margin="4dp"/>
+                    </LinearLayout>
+
+                    <!-- Sunday -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sun"
+                            android:textSize="12sp"/>
+                        <View
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:background="@drawable/circle_shape"
+                            android:backgroundTint="@color/info_blue"
+                            android:layout_margin="4dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Recommended Section -->
+            <TextView
+                android:id="@+id/tv_recommended_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Recommended for You"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/gray_dark"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_recommended"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:clipToPadding="false"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Add Floating Action Button for mood capture -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_capture_mood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_camera"
+        android:contentDescription="Capture mood"
+        app:backgroundTint="@color/primary"
+        app:tint="@color/white"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:menu="@menu/bottom_navigation_menu"
+        app:labelVisibilityMode="labeled"
+        app:itemIconTint="@color/bottom_nav_item_color"
+        app:itemTextColor="@color/bottom_nav_item_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:elevation="16dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "856968388216",
+    "firebase_url": "https://signuplogin-6a693-default-rtdb.firebaseio.com",
+    "project_id": "signuplogin-6a693",
+    "storage_bucket": "signuplogin-6a693.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:856968388216:android:fd7ca35a014d0025e4178d",
+        "android_client_info": {
+          "package_name": "micheal.must.signuplogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "856968388216-6dfsl6t8c7bm7drj15tg2ccu953s93og.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "micheal.must.signuplogin",
+            "certificate_hash": "a345bed13c9ff2c074b17a146b46bce38c6c1b9f"
+          }
+        },
+        {
+          "client_id": "856968388216-qgjdgtmb3h382koa924p0ohalm76u2pk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChLO1-vNS9_KVA59rnSFk4WNdNj7BNhEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "856968388216-qgjdgtmb3h382koa924p0ohalm76u2pk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
